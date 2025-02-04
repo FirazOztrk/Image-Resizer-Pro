@@ -15,7 +15,7 @@ A powerful Chrome extension that allows you to easily resize and manipulate imag
 
 Here's a visual guide to using Image Resizer Pro:
 
-![Image Resizer Pro Demo](./image_reizer_pro/img/img_1.png)
+![Image Resizer Pro Demo](./image_reizer_pro/img/img_1.PNG)
 
 ## Installation
 
