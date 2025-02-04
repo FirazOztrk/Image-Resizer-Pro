@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Image Editor Extension</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>IMAGE EDITOR PRO</h1>
+        </div>
+
+        <div class="main-content">
+            <div class="image-section">
+                <div class="image-title">Image Editor</div>
+                <div id="imageContainer" class="image-container">
+                    <input type="file" id="imageInput" accept="image/*" class="hidden">
+                    <img id="previewImage" src="" alt="Preview">
+                    <button id="deleteImageBtn" title="Remove image"></button>
+                    <div id="uploadPrompt" class="upload-prompt">
+                        <button id="uploadBtn" class="upload-btn">Upload Image</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="controls" class="controls hidden">
+                <div class="control-group">
+                    <div class="control-label">Crop</div>
+                    <div class="control-content">
+                        <div class="crop-controls">
+                            <button id="cropBtn" class="action-btn">Enable Crop</button>
+                            <button id="applyCropBtn" class="action-btn" style="display: none;">Apply Crop</button>
+                            <button id="cancelCropBtn" class="action-btn" style="display: none;">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-label">Dimensions</div>
+                    <div class="control-content">
+                        <div class="dimension-inputs">
+                            <input type="number" id="widthInput" placeholder="Width" min="1">
+                            <span>×</span>
+                            <input type="number" id="heightInput" placeholder="Height" min="1">
+                            <span>px</span>
+                        </div>
+                        <div class="dimension-sliders">
+                            <div class="slider-container">
+                                <label>Width</label>
+                                <input type="range" id="widthSlider" min="10" max="400" value="100" class="range-slider">
+                                <div class="slider-value" id="widthSliderValue">100%</div>
+                            </div>
+                            <div class="slider-container">
+                                <label>Height</label>
+                                <input type="range" id="heightSlider" min="10" max="400" value="100" class="range-slider">
+                                <div class="slider-value" id="heightSliderValue">100%</div>
+                            </div>
+                        </div>
+                        <div class="dimension-controls">
+                            <label class="slider-switch">
+                                <input type="checkbox" id="aspectRatio" checked>
+                                <span class="slider-track">
+                                    <span class="slider-thumb"></span>
+                                </span>
+                                <span class="slider-label">Keep aspect ratio</span>
+                            </label>
+                            <button id="resizeBtn" class="action-btn">Apply Resize</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-label">Quality</div>
+                    <div class="control-content">
+                        <div class="slider-container">
+                            <label>Quality</label>
+                            <input type="range" id="qualitySlider" min="1" max="100" value="75" class="range-slider">
+                            <div class="slider-value" id="qualityValue">75%</div>
+                        </div>
+                        <button id="applyQualityBtn" class="action-btn">Apply Quality</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-label">Format</div>
+                    <div class="format-options">
+                        <label class="radio-label">
+                            <input type="radio" name="format" value="image/webp" checked>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">WEBP</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="format" value="image/jpeg">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">JPG</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="format" value="image/png">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">PNG</span>
+                        </label>
+                    </div>
+                    
+                    <div style="margin-top: 16px;">
+                        <button id="convertBtn" class="action-btn">Convert Format</button>
+                    </div>
+                </div>
+
+                <div id="imageInfo" class="image-info">
+                    <div>Original: <span id="originalSize">-</span></div>
+                    <div>New: <span id="newSize">-</span></div>
+                    <div>Size: <span id="dimensions">-</span></div>
+                </div>
+
+                <button id="downloadBtn" class="action-btn">Download Image</button>
+            </div>
+        </div>
+
+        <div id="statusMessage" class="status-message hidden"></div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
